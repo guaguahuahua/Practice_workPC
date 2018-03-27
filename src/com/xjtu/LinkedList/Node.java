@@ -8,9 +8,15 @@ package com.xjtu.LinkedList;
 public class Node {
 	public int data; //存放数据
 	public Node next; //存放下个节点的引用
+	public char letter;
 	
 	//构造方法
 	public Node(int data) {
 		this.data=data;
 	}
+	
+	public Node(char letter) {
+		this.letter=letter;
+	}
+	
 }
