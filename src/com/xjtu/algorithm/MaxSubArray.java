@@ -1,7 +1,7 @@
 package com.xjtu.algorithm;
 
 public class MaxSubArray {
-
+	
 	/**
 	 * 暴力枚举法，从长度为1的子串一直到长度为本身的子串
 	 * @param nums	int[]
@@ -41,13 +41,13 @@ public class MaxSubArray {
 		int temp=0;
 		for(int index=0; index<nums.length; index++) {
 			temp+=nums[index];
+			if(temp>max) {
+				max=temp;
+			}
 			if(temp<0) {
 				temp=0;
-			}else {
-				if(temp>max) {
-					max=temp;
-				}
 			}
+			
 		}
 		System.out.println(max);
 		return max;
