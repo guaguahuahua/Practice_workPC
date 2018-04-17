@@ -95,8 +95,8 @@ public class ExpressionCalculation {
 //		int res=expressionCalculation(str);
 //		System.out.println(res);
 		
-//		String s="-56";
-//		System.out.println(Integer.parseInt(s));
+		String s="-56";
+		System.out.println(Integer.parseInt(s));
 	}
 
 }

@@ -100,7 +100,44 @@ public class DjkstraProblem {
 		
  	}
 	
-	
+	public static void dijkstraProblem_2(int [][]e) {
+		
+		//初始化一个顶点到其他定的距离
+		int[] dis=e[0];
+		//初始化一个boolean数组标记元素是否访问过
+		boolean[] visited=new boolean[dis.length];
+		//标记第0个元素为访问过的元素
+		visited[0]=true;
+		
+		//遍历所有的元素
+		for(int i=0; i<dis.length-1; i++) {
+
+			int min=Integer.MAX_VALUE;
+			int index=-1;
+			//寻找第一个距离原点最近的顶点
+			for(int j=0; j<dis.length; j++) {
+				if(min>dis[j] && !visited[j]) {
+					min=dis[j];
+					index=j;
+				}
+			}
+			//标记该顶点为访问过
+			visited[index]=true;
+			
+			//更新从原点到其他顶点的最短距离			
+			for(int j=0; j<e[index].length; j++) {
+				//如果选择顶点到其他顶点存在路径\
+				if(!visited[j] && e[index][j]!=Integer.MAX_VALUE && dis[j]>dis[index]+e[index][j]) {
+					dis[j]=dis[index]+e[index][j];
+				}
+			}
+		}
+		
+		//s输出获得最短路径的
+		for(int i=0; i<dis.length; i++) {
+			System.out.print(dis[i]+"\t");
+		}
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -113,7 +150,7 @@ public class DjkstraProblem {
 				{ inf, inf, inf, inf, 0, 4 }, 
 				{ inf, inf, inf, inf, inf, 0 }
 		};
-		dijkstraProblem_1(e);
+		dijkstraProblem_2(e);
 	}
 
 }

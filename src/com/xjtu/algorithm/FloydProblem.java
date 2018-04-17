@@ -12,8 +12,9 @@ public class FloydProblem {
 		//首先实现添加一个中间节点a来减少距离值,中间节点一单添加成功便会更新整体的路径长度值、
 		//也就是不断遍历的过程中，不断添加中间节点的过程，
 		for(int k=0; k<e.length; k++) {
+			
 			for(int i=0; i<e.length; i++) {
-				for(int j=0; j<e.length; j++) {
+				for(int j=0; j<e[i].length; j++) {
 					
 					if(e[i][j]>e[i][k]+e[k][j]) {
 						e[i][j]=e[i][k]+e[k][j];
@@ -36,16 +37,39 @@ public class FloydProblem {
 		}
 	}
 	
+	/**
+	 * 代码的识记过程
+	 * @param e
+	 */
+	public static void floydProblem_2(int [][]e) {
+		
+		//首先实现插入1号节点的效果
+		for(int k=0; k<e.length; k++) {	
+		
+			for(int i=0; i<e.length; i++) {
+				for(int j=0; j<e.length; j++) {
+					//这块一定得注意下标是从哪开始的，一般的都是从顶点1开始，但是我们这里是从顶点0开始的
+					if(e[i][j]>e[i][k]+e[k][j]) {
+						e[i][j]=e[i][k]+e[k][j];
+					}
+				}
+			}
+		
+		}
+		show(e);
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[][] e = { 
-				{ 0, 2, 6, 4 }, 
-				{ inf, 0, 4, inf }, 
-				{ 7, inf, 0, 1 }, 
-				{ 5, inf, 12, 0 } 
+				{ 0,    2, 6,  4 }, 
+				{ inf,  0, 3,  inf }, 
+				{ 7,  inf, 0,  1 }, 
+				{ 5,  inf, 12, 0 } 
 				};
 		
-		floydProblem(e);
+		floydProblem_2(e);
 	}
 
 }
