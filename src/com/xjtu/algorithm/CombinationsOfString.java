@@ -50,7 +50,7 @@ public class CombinationsOfString {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s="aabc";
+		String s="abc";
 		List<List<String>> res=combinationsOfString(s);
 		System.out.println(res.size()+","+res);
 		
