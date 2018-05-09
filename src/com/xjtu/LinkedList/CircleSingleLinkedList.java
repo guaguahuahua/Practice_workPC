@@ -1,5 +1,7 @@
 package com.xjtu.LinkedList;
 
+import com.xjtu.interview.FindKthToTail;
+
 public class CircleSingleLinkedList {
 
 	/**
@@ -37,6 +39,7 @@ public class CircleSingleLinkedList {
 		// TODO Auto-generated method stub
 		int len=7;
 		show(createCircleList(len), len);
+		
 	}
 
 }
